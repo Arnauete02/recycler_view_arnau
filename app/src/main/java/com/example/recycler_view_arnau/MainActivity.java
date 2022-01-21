@@ -1,6 +1,8 @@
 package com.example.recycler_view_arnau;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -21,18 +23,22 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
 
         initData();
+
+        MyAdapter myAdapter = new MyAdapter(geographics, this);
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 3, RecyclerView.VERTICAL, false));
     }
 
     private void initData(){
         Geographic geographic1 = new Geographic(
-                "Waterfall and Baobab Tree",
+                "Baobab Tree",
                 "https://www.nationalgeographic.com.es/medio/2022/01/05/waterfall-and-baobab-tree_3887ddc0_2000x1333.jpg",
                 "Cataratas Ruacana, Namibia",
                 "\"Al llegar a este lugar en la frontera norte de Namibia, tuve la suerte de que las cascadas tuvieran agua. Buscando buenos ángulos para fotografiar el baobab con las cataratas que fluyen detrás de él, subí acantilados muy empinados mientras cargaba con mi equipo y mi trípode. Mis manos y rodillas ensangrentadas y la espera de tres horas por la mejor luz valieron la pena\"."
         );
         geographics.add(geographic1);
         Geographic geographic2 = new Geographic(
-                "Los guardianes del Lago",
+                "Los guardianes",
                 "https://www.nationalgeographic.com.es/medio/2021/12/08/los-guardianes-del-lago_de8851ef_1152x769.jpg",
                 "Dakota del Norte, Estados Unidos",
                 "Después de seguir el clima espacial durante los días anteriores, sabía que era muy probable que las luces se vieran durante este otoño, así que fui a uno de mis lugares favoritos y preparé mi equipo con la esperanza de que aparecieran las auroras boreales…¡Y lo hicieron! Me quedé asombrado cuando bailaron por encima de mi cabeza y por fin pude capturar algunas imágenes con las que había soñado."
@@ -53,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         );
         geographics.add(geographic4);
         Geographic geographic5 = new Geographic(
-                "La catedral de la aurora",
+                "La catedral",
                 "https://www.nationalgeographic.com.es/medio/2021/12/08/la-catedral-de-la-aurora_0818b67e_1393x1080.jpg",
                 "Senja, Noruega",
                 "Esta imagen es la representación perfecta de una de mis mejores noches viendo la aurora boreal en Noruega desde la isla de Senja. Las vistas eran impresionantes con paisajes nevados, montañas espectaculares, y una Aurora que bailaba y coloreaba todo de verde. Fue realmente una noche para recordar. Las condiciones eran perfectas; no hacía demasiado frío, y la aurora boreal apareció poco después de llegar, durando mucho tiempo. Volví a casa muy feliz y agradecida por esta increíble experiencia."
@@ -74,14 +80,14 @@ public class MainActivity extends AppCompatActivity {
         );
         geographics.add(geographic7);
         Geographic geographic8 = new Geographic(
-                "Forest of Reflection",
+                "Forest",
                 "https://www.nationalgeographic.com.es/medio/2021/08/28/forest-of-reflection_5fb46941_1200x757.jpg",
                 "Fotografía ganadora del primer premio en la categoría: Landscape",
                 "Una hermosa escena con la que me encontré una tarde mientras exploraba un lugar para una sesión de fotos. Vi estas cortezas de papel en el agua creando reflejos impresionantes, con algo de luz dorada enfatizando los árboles. Vambié a mi lente gran angular y tomé algunas instantáneas antes de que la luz se desvaneciera."
         );
         geographics.add(geographic8);
         Geographic geographic9 = new Geographic(
-                "Beneath the Surface",
+                "The Surface",
                 "https://www.nationalgeographic.com.es/medio/2021/08/28/beneath-the-surface_20bd6eda_1200x799.jpg",
                 "Fotografía ganadora del segundo premio en la categoría: Landscape",
                 "Para algunos, las puestas de sol son un momento para la reflexión y la meditación. Para mí, combinar una puesta de sol ardiente con los prístinos jardines de coral del arrecife de Ningaloo bajo la superficie vítrea del océano trae un nuevo nivel de tranquilidad. Combinando dos mundos para crear un momento perfecto."
