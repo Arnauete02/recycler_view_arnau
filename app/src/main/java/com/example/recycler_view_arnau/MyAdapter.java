@@ -35,7 +35,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         Picasso.get().load(mGeographics.get(position).getUrl())
                 .fit()
                 .centerCrop()
@@ -46,7 +46,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, DetailActivity.class);
 
-                intent.putExtra("text", mGeographics.get(holder.getAdapterPosition()).getText());
+                intent.putExtra("text_title", mGeographics.get(holder.getAdapterPosition()).getText());
                 intent.putExtra("url", mGeographics.get(holder.getAdapterPosition()).getUrl());
                 intent.putExtra("desc", mGeographics.get(holder.getAdapterPosition()).getDesc());
 
@@ -63,6 +63,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public class MyViewHolder extends RecyclerView.ViewHolder{
         private ImageView url;
         private TextView text_title;
+        private TextView desc;
 
         ConstraintLayout rowLayout;
 
@@ -70,6 +71,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             super(itemView);
             url = itemView.findViewById(R.id.url);
             text_title = itemView.findViewById(R.id.text_title);
+            desc = itemView.findViewById(R.id.desc_2);
             rowLayout = itemView.findViewById(R.id.rowLayout);
         }
     }
